@@ -81,34 +81,34 @@
     </style>
 </head>
 <body>
-<form action="${pageContext.request.contextPath}/register" style="border:1px solid #ccc"
+<form action="${pageContext.request.contextPath}/register"
       method="post"
 >
-    <div class="container">
-        <h1>Sign Up</h1>
-        <p>Please fill in this form to create an account.</p>
-        <hr>
-
-        <label for="username"><b>Username</b></label>
-        <input type="text" placeholder="Enter username" name="username" required>
-
-        <label for="password"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="password" required>
-
-        <label for="password-repeat"><b>Repeat Password</b></label>
-        <input type="password" placeholder="Repeat Password" name="password-repeat" required>
-
-        <label>
-            <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-        </label>
-
-        <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
-
-        <div class="clearfix">
-            <button type="button" class="cancelbtn"><a href="${pageContext.request.contextPath}/login">Cancel</a></button>
-            <button type="submit" class="signupbtn">Sign Up</button>
+    <!--register area start-->
+    <div class="col-lg-6 col-md-6">
+        <div class="account_form register">
+            <h2>Register</h2>
+            <form action="#">
+                <p>
+                    <label for="username"><b>Username</b></label>
+                    <input type="text" placeholder="Enter username" name="username" required>
+                </p>
+                <p>
+                    <label for="username"><b>Username</b></label>
+                    <input type="text" placeholder="Enter username" name="username" required>
+                </p>
+                <p>
+                    <label for="password-repeat"><b>Repeat Password</b></label>
+                    <input type="password" placeholder="Repeat Password" name="password-repeat" required>
+                </p>
+                <div class="login_submit">
+                    <button type="submit">Register</button>
+                    <button type="button" class="cancelbtn"><a href="${pageContext.request.contextPath}/login">Cancel</a></button>
+                </div>
+            </form>
         </div>
     </div>
+    <!--register area end-->
 </form>
 </body>
 </html>

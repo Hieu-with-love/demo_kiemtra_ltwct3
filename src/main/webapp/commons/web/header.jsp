@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@include file="/commons/taglib.jsp"%>
 <header>
     <div class="main_header header_three color_three">
         <div class="header_top">
@@ -87,9 +88,20 @@
                             <div class="header_account_area">
                                 <div class="header_account_list register">
                                     <ul>
-                                        <li><a href="${URL}login.html">Register</a></li>
-                                        <li><span>/</span></li>
-                                        <li><a href="${URL}login.html">Login</a></li>
+                                        <c:choose>
+                                            <c:when test="${sessionScope.account == null}">
+                                                <li><a href="${pageContext.request.contextPath}/register">Register</a></li>
+                                                <li><span>/</span></li>
+                                                <li><a href="${pageContext.request.contextPath}/login">Login</a></li>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <li><a href="${pageContext.request.contextPath}/my-account">
+                                                        ${sessionScope.account.fullname}
+                                                </a></li>
+                                                <li><span>/</span></li>
+                                                <li><a href="${pageContext.request.contextPath}/logout">Logout</a></li>
+                                            </c:otherwise>
+                                        </c:choose>
                                     </ul>
                                 </div>
                                 <div class="header_account_list header_wishlist">
