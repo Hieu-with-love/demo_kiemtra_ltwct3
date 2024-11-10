@@ -20,6 +20,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User register(String username, String password) {
+        User user = new User();
+        user.setUsername(username);
+        user.setPassword(password);
+        userDao.saveUser(user);
+        if (user.getUsername() == null)
+            return null;
+        return user;
+    }
+
+    @Override
     public User getUserById(int id) {
         return userDao.findById(id);
     }

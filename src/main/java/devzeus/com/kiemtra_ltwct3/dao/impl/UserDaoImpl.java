@@ -4,10 +4,7 @@ import devzeus.com.kiemtra_ltwct3.config.DBConnectionMySQL;
 import devzeus.com.kiemtra_ltwct3.dao.UserDao;
 import devzeus.com.kiemtra_ltwct3.model.User;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -105,7 +102,7 @@ public class UserDaoImpl extends DBConnectionMySQL implements UserDao {
 
     @Override
     public void saveUser(User user) {
-        String sql = "INSERT INTO users(username, password, image, fullname, email, phone, created_date role_id) " +
+        String sql = "INSERT INTO users(username, password, image, fullname, email, phone, role_id) " +
                 "VALUES(?,?,?,?,?,?,?)";
         try {
             queryDb(user, sql);
@@ -149,8 +146,7 @@ public class UserDaoImpl extends DBConnectionMySQL implements UserDao {
         pstmt.setString(4, user.getFullname());
         pstmt.setString(5, user.getEmail());
         pstmt.setString(6, user.getPhone());
-        pstmt.setDate(7, new java.sql.Date(user.getCreatedDate().getTime()));
-        pstmt.setInt(4, user.getRole_id());
+        pstmt.setInt(7, 3);
     }
 
 
